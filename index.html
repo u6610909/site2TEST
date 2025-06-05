@@ -6,12 +6,12 @@
   <style>
     body {
       margin: 0;
-      background-color: #fff0f5;
+      background: #fff0f5;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      overflow: hidden;
+      flex-direction: column;
       font-family: 'Segoe UI', sans-serif;
     }
 
@@ -19,16 +19,17 @@
       width: 100px;
       height: 90px;
       position: relative;
+      transform: rotate(-45deg);
       animation: beat 1s infinite;
     }
 
     .heart::before,
     .heart::after {
       content: "";
-      position: absolute;
       width: 100px;
       height: 90px;
       background: #ff4d6d;
+      position: absolute;
       border-radius: 50%;
     }
 
@@ -44,19 +45,23 @@
 
     @keyframes beat {
       0%, 100% {
-        transform: scale(1);
+        transform: rotate(-45deg) scale(1);
       }
       50% {
-        transform: scale(1.1);
+        transform: rotate(-45deg) scale(1.1);
       }
     }
 
     .message {
-      position: absolute;
-      bottom: 50px;
-      text-align: center;
-      font-size: 1.5rem;
+      margin-top: 30px;
+      font-size: 1.8rem;
       color: #d6336c;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
